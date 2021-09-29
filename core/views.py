@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 
-def index(reques):
-    return render(reques, 'core/index.html')
+def index(request):
+    return render(request, 'core/index.html')
 
 
 
