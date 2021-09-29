@@ -35,10 +35,9 @@
 
 #### Deploy
 ```shell
--  Heroku
+- heroku login
 - heroku logs --tail 
-- heroku logs --tail 
-- heroku logs --tail 
+- heroku run python manage.py migrate  
 # Realizado configuração das variáveis de ambientes no settings do App no Heroku
 ```
 
