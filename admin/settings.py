@@ -36,7 +36,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = ['core']
 
-THIRD_PARTY_APPS = ['rest_framework', 'djoser', 'drf_yasg', 'django_extensions']
+THIRD_PARTY_APPS = ['rest_framework', 'djoser', 'drf_yasg', 'django_extensions', 'bootstrap4']
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -55,15 +55,15 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'admin.urls'
 
 # Conf da app debug toolbar
-if DEBUG:
-    INSTALLED_APPS.append('debug_toolbar')
-    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware',)
+# if DEBUG:
+#     INSTALLED_APPS.append('debug_toolbar')
+#     MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware',)
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

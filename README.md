@@ -4,6 +4,7 @@
 
 #### Configuração Base
 ```shell 
+- python 3.9.7
 - Django 3.2.4
 - Restframework 3.12.4
 - djoser==2.1.0
@@ -25,6 +26,11 @@
 - dj-database-url 
 - PostgreSQL
 - psycopg2
+```
+
+#### Templates
+```shell
+- django-bootstrap4 
 ```
 
 #### Deploy
