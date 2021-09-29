@@ -3,7 +3,6 @@ from django.urls import path, include
 from django.conf import settings
 from shared.conf_services import schema_view, trigger_error
 
-from core import urls as core_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,7 +10,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('/', include('core_url '))
+    path('/', include('core.urls'))
 ]
 
 
