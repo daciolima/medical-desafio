@@ -30,6 +30,10 @@
 #### Deploy
 ```shell
 -  Heroku
+- heroku logs --tail 
+- heroku logs --tail 
+- heroku logs --tail 
+# Realizado configuração das variáveis de ambientes no settings do App no Heroku
 ```
 
 #### Serviço monitoramento e código
