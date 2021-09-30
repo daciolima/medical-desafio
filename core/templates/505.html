@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Erro de processamento.</h1>
+    <hr class="my-2">
+    <p>Entre em contato com o administrador ou Clique no botão abaixo para voltar à página principal</p>
+    <p class="lead">
+      <a class="btn btn-info btn-sm" href="{% url 'core:index' %}">Página Principal</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

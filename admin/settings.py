@@ -36,7 +36,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = ['core']
 
-THIRD_PARTY_APPS = ['rest_framework', 'djoser', 'drf_yasg', 'django_extensions', 'bootstrap4']
+THIRD_PARTY_APPS = ['rest_framework', 'djoser', 'drf_yasg', 'django_extensions']
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -98,7 +98,6 @@ DATABASES = {
 
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -116,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Start forma autenticação via JWT
 REST_FRAMEWORK = {
@@ -167,14 +167,19 @@ USE_TZ = True
 
 
 # Arquivos estáticos(css, js, img, media)
+
+
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -184,12 +189,10 @@ sentry_sdk.init(
     dsn=SENTRY_DSN,
     integrations=[DjangoIntegration()],
 
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
     traces_sample_rate=1.0,
 
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
+
+# Customização do User
+AUTH_USER_MODEL = "core.DoctorUser"

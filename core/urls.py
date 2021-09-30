@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import index
+from .views import HomeView, UmlView
 
 app_name = "core"
 
 urlpatterns = [
-    path('', index, name="index")
+    path('', HomeView.as_view(), name="index"),
+    path('projeto', UmlView.as_view(), name="uml")
 ]

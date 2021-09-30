@@ -8,7 +8,11 @@ from shared.conf_services import schema_view, trigger_error
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+# Uso de files statics quando aplicação estiver em modo DEBUG
+if settings.DEBUG:
+    urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += [
     path('', include('core.urls'))

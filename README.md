@@ -30,7 +30,7 @@
 
 #### Templates
 ```shell
-- django-bootstrap4 
+- bootstrap 5 - via CDN 
 ```
 
 #### Deploy
