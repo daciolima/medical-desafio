@@ -1,23 +1,26 @@
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import DetailView, ListView
 from .forms import LoginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
-class HomeView(View):
+class HomeView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'core/index.html')
 
 
-class UmlView(View):
+class UmlView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'core/uml.html')
 
 
 class LoginView(View):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('core:index')
         form = LoginForm()
         return render(request, 'core/login.html', {'form': form})
 
@@ -32,7 +35,7 @@ class LoginView(View):
                 if user is not None:
                     if user.is_active:
                         login(request, user)
-                        return render(request, 'core/index.html')
+                        return redirect('core:index')
                     else:
                         return HttpResponse('Usuario desabilitado')
                 else:
@@ -42,7 +45,10 @@ class LoginView(View):
         return render(request, 'core/login.html', {'form': form})
 
 
-
+class LogoutView(LoginRequiredMixin, View):
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect('login')
 
 
 

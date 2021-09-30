@@ -208,4 +208,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
 
 # Redirecionamento para acesso negado
-LOGIN_URL = 'login'
+LOGIN_URL = '/login'
