@@ -200,3 +200,12 @@ sentry_sdk.init(
 
 # Customização do User
 AUTH_USER_MODEL = "core.DoctorUser"
+
+# Redirect após login
+LOGIN_REDIRECT_URL = '/'
+
+# Redirect após logout
+LOGOUT_REDIRECT_URL = '/login'
+
+# Redirecionamento para acesso negado
+LOGIN_URL = 'login'
