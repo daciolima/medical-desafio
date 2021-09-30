@@ -13,5 +13,13 @@ class UmlView(View):
         return render(request, 'core/uml.html')
 
 
+class Login(View):
+    def get(self, request):
+        return render(request, 'core/login.html')
+
+
+
+
+
 
 

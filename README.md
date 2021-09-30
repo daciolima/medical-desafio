@@ -38,6 +38,7 @@
 - heroku login
 - heroku logs --tail 
 - heroku run python manage.py migrate  
+- whitenoise
 # Realizado configuração das variáveis de ambientes no settings do App no Heroku
 ```
 
