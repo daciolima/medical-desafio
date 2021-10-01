@@ -54,6 +54,12 @@ class LogoutView(LoginRequiredMixin, View):
 
 
 # ############# View Patient ###############
+class ListPatientView(ListView):
+    model = Patient
+    template_name = 'core/patients_list.html'
+    queryset = Patient.objects.all()
+    context_object_name = 'patients'
+
 
 # ############# View Appointment ###############
 

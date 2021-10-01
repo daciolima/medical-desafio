@@ -12,7 +12,7 @@ class Patient(models.Model):
     name = models.CharField(max_length=50, null=False)
     address = models.CharField(max_length=80, null=False)
     number = models.IntegerField()
-    complement = models.CharField(max_length=50, null=False)
+    complement = models.CharField(max_length=50, null=False, blank=True)
     zip_code = models.IntegerField()
     phone = models.IntegerField()
     city = models.CharField(max_length=50, null=False)

@@ -15,5 +15,8 @@ class DoctorUserCreationForms(forms.UserCreationForm):
 
 
 class LoginForm(form_login.Form):
-    username = form_login.CharField(label='Usuário')
-    password = form_login.CharField(label='Senha', widget=form_login.PasswordInput)
+    username = form_login.CharField(label='Usuário', widget=form_login.TextInput(attrs={'class': 'form-control',
+                                                                                        'placeholder': ''}))
+    password = form_login.CharField(label='Senha', widget=form_login.PasswordInput(attrs={'class': 'form-control',
+                                                                                          'placeholder': ''}))
+

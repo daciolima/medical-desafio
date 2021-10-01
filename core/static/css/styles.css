@@ -1,13 +1,17 @@
-/* Algumas customizações da navbar  */
+body {
+    padding-top:110px;
+    padding-bottom:70px;
+}
+
 .bg-med {
 background-color: #1dc8e2;
 padding-left: 10px
 }
 
-.nav-link {
-color: #FFFFFF;
-}
 
+.label {
+    color: #FFFFFF;
+}
 
 @media all and (min-width: 992px) {
 	.navbar .dropdown-menu-end{ right:0; left: auto;  }
@@ -21,7 +25,6 @@ color: #FFFFFF;
 
 /* Algumas customizações da footer  */
 .footer {
-    position: fixed;
     height: 50px;
     bottom: 0px;
     left: 0px;
@@ -29,33 +32,23 @@ color: #FFFFFF;
     margin-bottom: 0px;
 }
 
+
+
+/* Styles customizações tela login  */
 @import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-/*background-color: #A9E5FD;*/
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-}
-
-.container{
-height: 100%;
-align-content: center;
-}
 
 .card{
 height: 370px;
-margin-top: auto;
+margin-top: 50px;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
 
 .social_icon span{
-font-size: 60px;
+font-size: 40px;
 margin-left: 10px;
-color: #FFC312;
+color: #1dc8e2;
 }
 
 .social_icon span:hover{
@@ -70,7 +63,7 @@ color: white;
 .social_icon{
 position: absolute;
 right: 20px;
-top: -45px;
+top: 3px;
 }
 
 .input-group-prepend span{
