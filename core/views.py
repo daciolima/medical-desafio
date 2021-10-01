@@ -3,11 +3,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import DetailView, ListView
+from .models import Patient, Appointment
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 
 
-class HomeView(LoginRequiredMixin, View):
+class IndexView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'core/index.html')
 
@@ -17,6 +18,7 @@ class UmlView(LoginRequiredMixin, View):
         return render(request, 'core/uml.html')
 
 
+# ############# View Login/Logout ###############
 class LoginView(View):
     def get(self, request):
         if request.user.is_authenticated:
@@ -50,6 +52,10 @@ class LogoutView(LoginRequiredMixin, View):
         logout(request)
         return HttpResponseRedirect('login')
 
+
+# ############# View Patient ###############
+
+# ############# View Appointment ###############
 
 
 

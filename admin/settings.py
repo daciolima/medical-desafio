@@ -36,7 +36,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = ['core']
 
-THIRD_PARTY_APPS = ['rest_framework', 'djoser', 'drf_yasg', 'django_extensions']
+THIRD_PARTY_APPS = ['rest_framework', 'djoser', 'drf_yasg', 'django_extensions', 'bootstrap4']
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 

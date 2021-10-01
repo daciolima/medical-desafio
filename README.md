@@ -28,9 +28,10 @@
 - psycopg2
 ```
 
-#### Templates
+#### Templates Styles
 ```shell
-- bootstrap 5 - via CDN 
+- django-bootstrap4 
+- font awesomeV5.9  
 ```
 
 #### Deploy
