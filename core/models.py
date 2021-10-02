@@ -13,6 +13,7 @@ class Patient(models.Model):
     address = models.CharField(max_length=80, null=False)
     number = models.IntegerField()
     complement = models.CharField(max_length=50, null=False, blank=True)
+    neighborhood = models.CharField(max_length=50, null=False, blank=False, default='Faltando')
     zip_code = models.IntegerField()
     phone = models.IntegerField()
     city = models.CharField(max_length=50, null=False)
@@ -24,7 +25,7 @@ class Patient(models.Model):
     class Meta:
         verbose_name = 'patient'
         verbose_name_plural = 'patients'
-        ordering = ['id']
+        ordering = ['-id']
 
     def __str__(self):
         return self.name

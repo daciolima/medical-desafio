@@ -6,9 +6,55 @@ body {
 .bg-med {
 background-color: #1dc8e2;
 padding-left: 10px
+
 }
 
 
+
+h11 {
+    color:red;
+}
+
+#logo {
+        width:50%;
+        height:50%;
+}
+
+.panel-heading{
+    font-size:150%;
+}
+
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #1dc8e2;
+}
+
+
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #1dc8e2 !Important;
+    border: solid 1px #1dc8e2 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #1C8496 !Important;
+    border: solid 1px ##1C8496;
+}
 .label {
     color: #FFFFFF;
 }

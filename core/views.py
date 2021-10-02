@@ -1,10 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import DetailView, ListView
+from django.contrib import messages
 from .models import Patient, Appointment
-from .forms import LoginForm
+from .forms import LoginForm, PatientForm
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -54,12 +57,62 @@ class LogoutView(LoginRequiredMixin, View):
 
 
 # ############# View Patient ###############
-class ListPatientView(ListView):
-    model = Patient
-    template_name = 'core/patients_list.html'
-    queryset = Patient.objects.all()
-    context_object_name = 'patients'
+# class ListPatientView(ListView):
+#     model = Patient
+#     template_name = 'core/patients_list.html'
+#     queryset = Patient.objects.all()
+#     context_object_name = 'patients'
 
+@login_required
+def patients_list(request):
+    patients = Patient.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(patients, 5)
+    try:
+        object_patients = paginator.page(page)
+    except PageNotAnInteger:
+        object_patients = paginator.page(1)
+    except EmptyPage:
+        object_patients = paginator.page(paginator.num_pages)
+    return render(request, 'core/patients_list.html', {'patients': object_patients})
+
+
+@login_required
+def patient_create(request):
+    print(request.POST)
+    if request.method == "POST":
+        form = PatientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('core:patients')
+    else:
+        form = PatientForm()
+    return render(request, 'core/patient_create.html', {'form': form})
+
+
+@login_required
+def patient_detail(request, id):
+    patient = get_object_or_404(Patient, pk=id)
+    return render(request, 'core/patient_detail.html', {'patient': patient})
+
+
+@login_required
+def patient_update(request, id):
+    patient = get_object_or_404(Patient, id=id)
+    print(request.POST)
+    form = PatientForm(request.POST or None, instance=patient)
+    if form.is_valid():
+        form.save()
+        return render(request, 'core/patient_detail.html', {'patient': patient})
+    return render(request, 'core/patient_edit.html', {'patient': patient})
+
+
+@login_required
+def patient_delete(request, id):
+    patient = get_object_or_404(Patient, id=id)
+    patient.delete()
+    messages.success(request, 'Cliente excluído com sucesso')
+    return redirect('core:patients')
 
 # ############# View Appointment ###############
 

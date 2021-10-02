@@ -1,7 +1,7 @@
 from django.contrib.auth import forms
 from django import forms as form_login
 
-from .models import DoctorUser
+from .models import DoctorUser, Patient
 
 
 class DoctorUserChangeForms(forms.UserChangeForm):
@@ -19,4 +19,10 @@ class LoginForm(form_login.Form):
                                                                                         'placeholder': ''}))
     password = form_login.CharField(label='Senha', widget=form_login.PasswordInput(attrs={'class': 'form-control',
                                                                                           'placeholder': ''}))
+
+
+class PatientForm(form_login.ModelForm):
+    class Meta:
+        model = Patient
+        fields = "__all__"
 

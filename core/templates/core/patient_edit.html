@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+
+<form action="{{patient.id}}" method="POST">
+    {% csrf_token %}
+<fieldset class="sessao">
+<legend  class="w-auto dp">Dados Pessoais</legend>
+<!-- Text input-->
+<div class="form-group">
+<div class="row">
+  <label class="col-sm-1" for="name">Nome: <h11>*</h11></label>
+  <div class="col-sm-6">
+  <input id="name" name="name" value="{{patient.name}}" placeholder="" class="form-control" required="" type="text">
+
+  </div>
+
+    <div class="col-auto">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fas fa-phone-volume fa-1x"></i></div>
+        </div>
+        <input id="phone" name="phone" value="{{patient.phone}}" class="form-control" placeholder="DDD + Telefone" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+      OnKeyPress="formatar('## #####-####', this)">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </fieldset>
+
+<fieldset class="sessao">
+
+<legend  class="w-auto dp">Endereço</legend>
+
+
+<!-- Search input-->
+<div class="form-group">
+<div class="row">
+  <label class="col-sm-1 control-label" for="zip_code">CEP: <h11>*</h11></label>
+  <div class="col-md-2">
+    <input id="zip_code" name="zip_code" value="{{patient.zip_code}}"  placeholder="Apenas números" class="form-control input-md" required="" type="search" maxlength="8" pattern="[0-9]+$">
+  </div>
+  <div class="col-md-2">
+      <button type="button" class="btn btn-warning" onclick="search_zip_code(zip_code.value)">Buscar CEP</button>
+    </div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+  <label class="col-sm-1 control-label" for="Address">Rua: </label>
+      <div class="col-sm-6">
+       <input id="address" name="address" value="{{patient.address}}"  class="form-control" placeholder="" required="" readonly="readonly" type="text">
+      </div>
+</div>
+</div>
+
+    <div class="form-group">
+  <div class="row">
+    <label class="col-sm-1 control-label" for="Number">Nº: <h11>*</h11></label>
+  <div class="col-sm-2">
+    <input id="number" name="number" value="{{patient.number}}"  class="form-control" placeholder="" required=""  type="text">
+  </div>
+  <label class="col-sm-2 control-label" for="Complement">Complemento: </label>
+      <div class="col-sm-5">
+      <input id="complement" name="complement" value="{{patient.complement}}" class="form-control" placeholder="" required=""  type="text">
+    </div>
+
+  </div>
+  </div>
+
+  <div class="form-group">
+  <div class="row">
+
+      <label class="col-sm-1 control-label" for="Neighborhood">Bairro:</label>
+      <div class="col-sm-3">
+      <input id="neighborhood" name="neighborhood" value="{{patient.neighborhood}}"  class="form-control" placeholder="" required="" readonly="readonly" type="text">
+
+</div>
+<label class="col-sm-1 control-label" for="City">Cidade:</label>
+      <div class="col-sm-5">
+        <input id="city" name="city" value="{{patient.city}}" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="row">
+
+      <label class="col-sm-1 control-label" for="State">Estado:</label>
+      <div class="col-sm-5">
+      <input id="state" name="state" value="{{patient.state}}" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+    </div>
+<label class="col-sm-1 control-label" for="Country">País:</label>
+      <div class="col-sm-3">
+      <input id="country" name="country" value="{{patient.country}}" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+    </div>
+
+  </div>
+</div>
+
+
+</fieldset>
+
+    <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-info">Cadastrar</button>
+                    <a href="{% url 'core:patients' %}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
+</form>
+
+</div>
+
+
+
+
+{% endblock %}

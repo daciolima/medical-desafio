@@ -13,30 +13,30 @@
 				</div>
 			</div>
 			<div class="card-body">
-                            <form method="POST" action="login" class="form">
-								<div class="form-group">
-                                {% csrf_token %}
-								{% for field in form %}
-									<div class="form-group">
-								<label class="label" >{{ field.label }}</label>
-									{{ field }}
-										</div>
-								{% endfor %}
+				<form method="POST" action="login" class="form">
+					<div class="form-group">
+						{% csrf_token %}
+						{% for field in form %}
+						<div class="form-group">
+							<label class="label" >{{ field.label }}</label>
+							{{ field }}
+						</div>
+						{% endfor %}
 
 
-                                    <button type="submit" class="btn btn-info">
-                                      Entrar
-                                    </button>
-								</div>
-                            </form>
+						<button type="submit" class="btn btn-info">
+							Entrar
+						</button>
+					</div>
+				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
 					Suporte: 0800 333 3333
 				</div>
-<!--				<div class="d-flex justify-content-center">-->
-<!--					<a href="#">Forgot your password?</a>-->
-<!--				</div>-->
+				<!--				<div class="d-flex justify-content-center">-->
+				<!--					<a href="#">Forgot your password?</a>-->
+				<!--				</div>-->
 			</div>
 		</div>
 	</div>

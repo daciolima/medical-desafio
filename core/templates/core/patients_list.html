@@ -5,33 +5,53 @@
 
 <div class="container">
     <div class="row">
-    <h1>Paciente</h1>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Cidade</th>
-            <th>UF</th>
-        </tr>
-        </thead>
-        <tbody>
+        <h1>Pacientes</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Opções</th>
+            </tr>
+            </thead>
+            <tbody>
 
-                {% for patient in patients  %}
-                    <tr>
-                        <td scope="row">{{ patient.id }}</td>
-                        <td>{{ patient.name }}</td>
-                        <td>{{ patient.phone }}</td>
-                        <td>{{ patient.city }}</td>
-                        <td>{{ patient.uf }}</td>
+            {% for patient in patients  %}
+            <tr>
+                <td scope="row">{{ patient.id }}</td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.phone }}</td>
+                <td>{{ patient.city }}</td>
+                <td>{{ patient.state }}</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'core:patient_detail' patient.id %}">Ver Cadastro</a>
+                    <a class="btn btn-warning btn-sm" href="{% url 'core:patient_update' patient.id %}">Alterar Cadastro</a>
+                </td>
+            </tr>
 
-                    </tr>
-                {% endfor %}
 
-        </tbody>
-    </table>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <a href="{% url 'core:patient_create' %}" class="btn btn-info">Novo Paciente</a>
+        </div>
+        <div>
+            {% include "core/pagination.html" with page=object %}
+        </div>
+    </div>
 </div>
-</div>
+
+
+
+
 
 {% endblock %}
