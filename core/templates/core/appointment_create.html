@@ -7,7 +7,6 @@
 
 
 
-
 <div class="container">
 
   <form action="appointment-create" method="POST">
@@ -31,7 +30,7 @@
             <div class="input-group mb-2">
           <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     {{ form.date }}
-                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-append" data-target="#id_date" data-toggle="id_date">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
                 </div>
@@ -118,5 +117,6 @@
   </form>
 
 </div>
+
 
 {% endblock %}

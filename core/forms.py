@@ -54,6 +54,9 @@ class PatientForm(form_login.ModelForm):
 
 
 class AppointmentForm(form_login.ModelForm):
+    date = form_login.DateField(error_messages={"invalid": "Data inválida"})
+    time = form_login.CharField(error_messages={"invalid": "Hora inválida"})
+
     class Meta:
         model = Appointment
         exclude = "update_at", "created_at"
@@ -62,18 +65,18 @@ class AppointmentForm(form_login.ModelForm):
         super(AppointmentForm, self).__init__(*args, **kwargs)
         self.fields["title"].widget.attrs.update({"class": "form-control"})
         self.fields["date"].widget.attrs.update(
-            {
-                "class": "form-control datetimepicker-input",
-                "id": "datetimepicker1",
-                "data - target": "#datetimepicker1",
-            }
+            {"class": "form-control", "id": "id_date", "value": "00/00/0000"}
         )
+        # "class": "form-control datetimepicker-input",
+        # "id": "datetimepicker1",
+        # "data - target": "#datetimepicker1",
         self.fields["time"].widget.attrs.update(
             {
                 "class": "form-control col-sm-4",
                 "id": "id_time",
                 "data-autoclose": "true",
                 "data-placement": "right",
+                "value": "00:00",
             }
         )
         self.fields["doctor"].widget.attrs.update(

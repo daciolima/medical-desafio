@@ -119,14 +119,13 @@ class AppointmentView(LoginRequiredMixin, ListView):
 
 @login_required
 def appointment_create(request):
-    print(request.POST)
     if request.method == "POST":
         form = AppointmentForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("core:appointments")
         else:
-            messages.success(request, "Informações inválidas")
+            messages.success(request, "Existe campos inválidos. Corrigir.")
     else:
         form = AppointmentForm()
     return render(request, "core/appointment_create.html", {"form": form})

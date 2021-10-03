@@ -17,6 +17,17 @@ h11 {
     font-weight: bold;
 }
 
+/* Style do Status ns list patient  */
+td.red {
+    background-color: #f7f7b9;
+}
+td.orange {
+    background-color: #cbf7b9;
+}
+td.blue {
+    background-color: #b2eaf4;
+}
+
 #logo {
         width:50%;
         height:50%;

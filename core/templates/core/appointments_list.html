@@ -16,23 +16,35 @@
                 <th>Status</th>
                 <th>Médico</th>
                 <th>Paciente</th>
-                <th>Opções</th>
+                <th colspan=3>Opções</th>
             </tr>
             </thead>
             <tbody>
 
             {% for appointment in appointments  %}
+
             <tr>
-                <td scope="row">{{ appointment.id }}</td>
+                <td scope="row" class="
+                        {% if appointment.status == 'not_confirme' %}red{% endif %}
+                        {% if appointment.status == 'confirmed' %}orange{% endif %}
+                        {% if appointment.status == 'done' %}blue{% endif %}">
+                    {{ appointment.id }}
+                </td>
                 <td>{{ appointment.title }}</td>
                 <td>{{ appointment.date|date:"d/m/Y"|default:"..."}}</td>
                 <td>{{ appointment.time|time:"H:i:s"|default:"..." }}</td>
-                <td>{{ appointment.status_verbose}}</td>
+
+                <td>
+                    {{ appointment.status_verbose}}</td>
                 <td>{{ appointment.doctor.first_name }}</td>
                 <td>{{ appointment.patient }}</td>
                 <td>
                     <a class="btn btn-secondary btn-sm" href="{% url 'core:appointment_detail' appointment.id %}">Ver</a>
+                </td>
+                <td>
                     <a class="btn btn-warning btn-sm" href="{% url 'core:appointment_update' appointment.id %}">Alterar</a>
+                </td>
+                <td>
                     <a class="btn btn-danger btn-sm" href="{% url 'core:appointment_delete' appointment.id %}">Excluir</a>
                 </td>
             </tr>
