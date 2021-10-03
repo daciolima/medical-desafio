@@ -28,7 +28,7 @@
                 <td>{{ appointment.date|date:"d/m/Y"|default:"..."}}</td>
                 <td>{{ appointment.time|time:"H:i:s"|default:"..." }}</td>
                 <td>{{ appointment.status_verbose}}</td>
-                <td>{{ appointment.doctor }}</td>
+                <td>{{ appointment.doctor.first_name }}</td>
                 <td>{{ appointment.patient }}</td>
                 <td>
                     <a class="btn btn-secondary btn-sm" href="{% url 'core:appointment_detail' appointment.id %}">Ver</a>

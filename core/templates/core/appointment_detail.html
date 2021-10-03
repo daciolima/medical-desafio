@@ -11,11 +11,11 @@
 <div class="container">
 
     <fieldset class="sessao">
-      <legend  class="w-auto dp">Consulta - <strong>{{appointment.id}}</strong></legend>
+      <legend  class="w-auto dp">Consulta - Codigo: <strong>{{appointment.id}}</strong></legend>
       <!-- Text input-->
       <div class="form-group">
         <div class="row">
-          <label class="col-sm-1" for="Title">Título:</label>
+          <label class="col-sm-1 fielddetail" for="Title">Título:</label>
           <div class="col-sm-6">
                 {{ appointment.title }}
           </div>
@@ -24,7 +24,7 @@
 
       <div class="form-group">
         <div class="row">
-                    <label class="col-sm-1" for="datetimepicker1">Data: </label>
+                    <label class="col-sm-1 fielddetail" for="datetimepicker1">Data: </label>
           <div class="col-auto">
             <div class="input-group mb-2">
           <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -40,7 +40,7 @@
 
       <div class="form-group">
         <div class="row">
-                    <label class="col-sm-1" for="Time">Horário: </label>
+                    <label class="col-sm-1 fielddetail" for="Time">Horário: </label>
 
           <div class="col-auto">
             <div class="input-group mb-2">
@@ -55,7 +55,7 @@
       <div class="form-group">
         <div class="row">
 
-          <label class="col-sm-1 control-label" for="Doctor">Médico: </label>
+          <label class="col-sm-1 control-label fielddetail" for="Doctor">Médico: </label>
           <div class="col-sm-3">
             {{ appointment.doctor }}
 
@@ -66,7 +66,7 @@
       <div class="form-group">
         <div class="row">
 
-          <label class="col-sm-1 control-label" for="Patient">Paciente: </label>
+          <label class="col-sm-1 control-label fielddetail" for="Patient">Paciente: </label>
           <div class="col-sm-5">
             {{ appointment.patient }}
           </div>
@@ -78,7 +78,7 @@
       <div class="form-group">
         <div class="row">
 
-          <label class="col-sm-1 control-label" for="Description">Descrição: </label>
+          <label class="col-sm-1 control-label fielddetail" for="Description">Descrição: </label>
           <div class="col-sm-5">
             {{ appointment.description }}
           </div>
@@ -89,7 +89,7 @@
       <div class="form-group">
         <div class="row">
 
-          <label class="col-sm-1 control-label" for="Status">Status: </label>
+          <label class="col-sm-1 control-label fielddetail" for="Status">Status: </label>
           <div class="col-sm-5">
             {{ appointment.status }}
           </div>

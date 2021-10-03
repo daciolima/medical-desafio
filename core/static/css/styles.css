@@ -9,10 +9,12 @@ padding-left: 10px
 
 }
 
-
-
 h11 {
     color:red;
+}
+
+.fielddetail {
+    font-weight: bold;
 }
 
 #logo {
