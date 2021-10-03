@@ -33,14 +33,12 @@ class Patient(models.Model):
         return self.name
 
 
-STATUS_CHOICE = (
-    ("not_confirme", "A Confirmar"),
-    ("confirmed", "Confirmado"),
-    ("done", "Finalizado"),
-)
-
-
 class Appointment(models.Model):
+    STATUS_CHOICE = (
+        ("not_confirme", "A Confirmar"),
+        ("confirmed", "Confirmado"),
+        ("done", "Finalizado"),
+    )
     title = models.CharField(max_length=40, blank=False)
     date = models.DateField(null=False, blank=False)
     time = models.TimeField(null=False)
@@ -57,4 +55,7 @@ class Appointment(models.Model):
         ordering = ["-id"]
 
     def __str__(self):
-        return self.title
+        return f"{self.title} {self.status_display()}"
+
+    def status_verbose(self):
+        return dict(Appointment.STATUS_CHOICE)[self.status]

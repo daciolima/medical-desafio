@@ -11,16 +11,21 @@ class DoctorUserAdmin(UserAdmin):
     form = DoctorUserChangeForms
     add_form = DoctorUserCreationForms
     model = DoctorUser
-    fieldsets = UserAdmin.fieldsets + (
-        ("Campos Personalizados", {"fields": ('bio',)}),
-    )
+    fieldsets = UserAdmin.fieldsets + (("Campos Personalizados", {"fields": ("bio",)}),)
 
 
 @admin.register(Patient)
 class PatientAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone',)
+    list_display = (
+        "name",
+        "phone",
+    )
 
 
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ('date', 'title', 'patient_id',)
+    list_display = (
+        "date",
+        "title",
+        "status",
+    )
