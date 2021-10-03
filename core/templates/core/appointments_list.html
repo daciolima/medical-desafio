@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h1>Consultas</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Titulo</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Status</th>
+                <th>Médico</th>
+                <th>Paciente</th>
+                <th>Opções</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for appointment in appointments  %}
+            <tr>
+                <td scope="row">{{ appointment.id }}</td>
+                <td>{{ appointment.title }}</td>
+                <td>{{ appointment.date|date:"d/m/Y"|default:"..."}}</td>
+                <td>{{ appointment.time|time:"H:i:s"|default:"..." }}</td>
+                <td>{{ appointment.status}}</td>
+                <td>{{ appointment.doctor.first_name }}</td>
+                <td>{{ appointment.patient }}</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'core:appointment_detail' appointment.id %}">Ver</a>
+                    <a class="btn btn-warning btn-sm" href="{% url 'core:appointment_update' appointment.id %}">Alterar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'core:appointment_delete' appointment.id %}">Excluir</a>
+                </td>
+            </tr>
+
+
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <a href="{% url 'core:appointment_create' %}" class="btn btn-info">Nova Consulta</a>
+        </div>
+        <div>
+            {% include "core/appointment_pagination.html" with page=object %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

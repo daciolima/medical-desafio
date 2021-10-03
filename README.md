@@ -31,7 +31,8 @@
 #### Templates Styles
 ```shell
 - django-bootstrap4 
-- font awesomeV5.9  
+- font awesomeV5.9
+- Temlates Tags Django 
 ```
 
 #### Deploy
@@ -40,7 +41,6 @@
 - heroku logs --tail 
 - heroku run python manage.py migrate  
 - whitenoise
-# Realizado configuração das variáveis de ambientes no settings do App no Heroku
 ```
 
 #### Serviço monitoramento e código

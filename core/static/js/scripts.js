@@ -66,13 +66,13 @@
         }
     }
 
-function formatar(mascara, documento){
-  var i = documento.value.length;
-  var saida = mascara.substring(0,1);
-  var texto = mascara.substring(i);
+function formate(mask, document){
+  var i = document.value.length;
+  var output = mask.substring(0,1);
+  var text = mask.substring(i);
 
-  if (texto.substring(0,1) != saida){
-            documento.value += texto.substring(0,1);
+  if (text.substring(0,1) != output){
+            document.value += text.substring(0,1);
   }
 
 }

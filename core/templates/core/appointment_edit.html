@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{{ form.media }}
+{% block content %}
+
+
+
+
+<div class="container">
+
+  <form action="{{appointment.id}}" method="POST">
+    {% csrf_token %}
+    <fieldset class="sessao">
+      <legend  class="w-auto dp">Dados Consulta</legend>
+      <!-- Text input-->
+      <div class="form-group">
+        <div class="row">
+          <label class="col-sm-1" for="Title">Título: <h11>*</h11></label>
+          <div class="col-sm-6">
+                {{ form.title }}
+          </div>
+        </div></div>
+
+
+      <div class="form-group">
+        <div class="row">
+                    <label class="col-sm-1" for="datetimepicker1">Data: </label>
+          <div class="col-auto">
+            <div class="input-group mb-2">
+          <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    {{ form.date }}
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+                    <label class="col-sm-1" for="Time">Horário: </label>
+
+          <div class="col-auto">
+            <div class="input-group mb-2">
+              {{ form.time }}
+              <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="far fa-clock"></i></div>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="row">
+
+          <label class="col-sm-1 control-label" for="Doctor">Médico: </label>
+          <div class="col-sm-3">
+            {{ form.doctor }}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+
+          <label class="col-sm-1 control-label" for="Patient">Paciente: </label>
+          <div class="col-sm-5">
+            {{ form.patient }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-sm-1 control-label" for="Description">Descrição: </label>
+          <div class="col-sm-5">
+            {{ form.description }}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="row">
+
+          <label class="col-sm-1 control-label" for="Status">Status: </label>
+          <div class="col-sm-5">
+            {{ form.status }}
+          </div>
+
+        </div>
+      </div>
+
+
+    </fieldset>
+
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label"></label>
+      <div class="col-sm-4 for">
+        <button type="submit" class="btn btn-info">Atualizar</button>
+        <a href="{% url 'core:appointments' %}" class="btn btn-secondary">Cancelar</a>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}

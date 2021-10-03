@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Medical - Desafio</title>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
-
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-clockpicker.min.css' %}" rel="stylesheet">
 
 </head>
 
@@ -33,34 +33,26 @@
     >
         <span class="navbar-toggler-icon"></span>
     </button>
+    <ul class="navbar-nav   mr-auto">
 
-
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'core:patients' %}">Pacientes <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'core:appointments' %}">Agendar Consulta <span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
     <div class="collapse navbar-collapse " id="navbarNavDropdown">
-        <ul class="navbar-nav   mr-auto">
-            <li class="nav-item dropdown active">
-                <a
-                        class="nav-link dropdown-toggle "
-                        href="#"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                >
-                    Paciente
-                </a>
-                <div class="dropdown-menu fade-up " aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'core:patients' %}">Pacientes</a>
-                    <a class="dropdown-item" href="#">Agendar Consulta</a>
-                </div>
 
+
+        <ul class="navbar-nav ml-auto ">
+            <li class="nav-item">
+                <a class="btn btn-secondary" data-toggle="modal" data-target=".resumo-modal-xl">SOBRE O PROJETO</a>
             </li>
-
         </ul>
 
+        <ul class="navbar-nav ml-auto ">
 
-        <a class="btn btn-secondary" data-toggle="modal" data-target=".resumo-modal-xl">Resumo Documentação Projeto</a>
-
-        <ul class="navbar-nav ms-auto ">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Usuário: {{ user.username }}
@@ -76,24 +68,26 @@
 
     </div>
 
-</nav>
 
+
+</nav>
+{% if user.is_authenticated %}
 <div class="container">
     {% if messages %}
-		{% for message in messages %}
-			<div id="alert" class="alert alert-info" role="alert">
-				{{ message }}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			{% endfor %}
+    {% for message in messages %}
+    <div id="alert" class="alert alert-info" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
     {% endif %}
 </div>
+{% endif %}
+
 
 {% block content %} {% endblock %}
-
-
 
 
 <footer class="footer bg-med fixed-bottom">
@@ -118,11 +112,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+
                     {% include "core/resumo_projeto.html"  %}
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
 
                 </div>
@@ -131,11 +125,45 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 <script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/bootstrap-clockpicker.min.js' %}"></script>
+
+
+
+<script type="text/javascript">
+
+$('#id_time').clockpicker(
+{
+placement: 'bottom',
+align: 'left',
+autoclose: true,
+'default': 'now'
+});
+</script>
+
+    <script>
+  $( "#datepicker" ).datepicker({
+    format: "dd/mm/yyyy",
+    language: "pt-BR"
+});
+</script>
+
+
+<script src="{% static 'js/jquery-input-mask-phone-number.min.js' %}"></script>
+
+ <script>
+    //(xx) x xxxx-xxxx format code
+    $(document).ready(function () {
+        $('#id_phone').usPhoneFormat({
+            format: '(xx) x xxxx-xxxx',
+        });
+    });
+  </script>
+
 
 </body>
 </html>
