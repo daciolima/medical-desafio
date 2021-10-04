@@ -19,6 +19,7 @@
 - pre-commit
 - black
 - flask8
+- python-decouple
 ```
 
 #### Database

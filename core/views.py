@@ -55,6 +55,10 @@ class LogoutView(LoginRequiredMixin, View):
         logout(request)
         return HttpResponseRedirect("login")
 
+    # def get(self, request, *args, **kwargs):
+    #     logout(request)
+    #     return redirect('/login')
+
 
 # ############# View Patient ###############
 @login_required

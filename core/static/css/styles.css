@@ -110,6 +110,7 @@ background-color: rgba(0,0,0,0.5) !important;
 
 .social_icon span{
 font-size: 40px;
+margin-left: 5px;
 color: #1dc8e2;
 }
 
@@ -125,6 +126,8 @@ color: #1dc8e2;
 color: white;
 cursor: pointer;
 }
+
+
 
 .card-header h3{
 color: white;
