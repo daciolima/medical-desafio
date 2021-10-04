@@ -1,65 +1,67 @@
-// Clear value form zipcode
 function clean_form_zip_code() {
-    document.getElementById('address').value=("");
-    document.getElementById('neighborhood').value=("");
-    document.getElementById('city').value=("");
-    document.getElementById('state').value=("
-}
+            //clean values form zip_code
+            document.getElementById('address').value=("");
+            document.getElementById('neighborhood').value=("");
+            document.getElementById('city').value=("");
+            document.getElementById('state').value=("");
 
-// update field with values
-function meu_callback(conteudo) {
-    if (!("erro" in conteudo)) {
-        document.getElementById('address').value=(conteudo.logradouro);
-        document.getElementById('neighborhood').value=(conteudo.bairro);
-        document.getElementById('city').value=(conteudo.localidade);
-        document.getElementById('state').value=(conteudo.uf);
     }
-    else {
-        clean_form_zip_code();
-        alert("CEP não encontrado.");
-        document.getElementById('zip_code').value=("");
-    }
-}
 
-// new variable zip_code. Only with digites
-function search_zip_code(vl) {
-    var zip_code = vl.replace(/\D/g, '');
-
-    if (zip_code !== "") {
-
-        //regex validate zip_code.
-        var validate_zip_code = /^[0-9]{8}$/;
-
-        //validate zip_code format.
-        if(validate_zip_code.test(zip_code)) {
-
-            // moment with "..." while search API
-            document.getElementById('address').value="...";
-            document.getElementById('neighborhood').value="...";
-            document.getElementById('city').value="...";
-            document.getElementById('state').value="...";
-
-            //Cria um elemento javascript.
-            var script = document.createElement('script');
-
-            //Sincroniza com o callback.
-            script.src = '//viacep.com.br/ws/'+ zip_code + '/json/?callback=meu_callback';
-
-            //Insere script no documento e carrega o conteúdo.
-            document.body.appendChild(script);
-
-        } //end if.
-        else {
-            //zip_code é inválido.
-            clean_form_zip_code();
-            alert("Formato de CEP inválido.");
+    function fun_callback(content) {
+        if (!("erro" in content)) {
+            //Update fields
+            document.getElementById('address').value=(content.logradouro);
+            document.getElementById('neighborhood').value=(content.bairro);
+            document.getElementById('city').value=(content.localidade);
+            document.getElementById('state').value=(content.uf);
         }
-    } //end if.
-    else {
-        //zip_code sem valor, limpa formulário.
-        clean_form_zip_code();
+        else {
+            clean_form_zip_code();
+            alert("CEP não encontrado.");
+            document.getElementById('zip_code').value=("");
+        }
     }
-}
+
+    function search_zip_code(vl) {
+
+        //new variable "zip_code" only digites.
+        var zip_code = vl.replace(/\D/g, '');
+
+        if (zip_code !== "") {
+
+            // Regex validate zip_code
+            var validate_zip_code = /^[0-9]{8}$/;
+
+
+            if(validate_zip_code.test(zip_code)) {
+
+                // Display fields with "..." while search api viacep.
+                document.getElementById('address').value="...";
+                document.getElementById('neighborhood').value="...";
+                document.getElementById('city').value="...";
+                document.getElementById('state').value="...";
+
+                // Create element javascript.
+                var script = document.createElement('script');
+
+                // Sicronize with the callback.
+                script.src = '//viacep.com.br/ws/'+ zip_code + '/json/?callback=fun_callback';
+
+                // Insert script document and load content.
+                document.body.appendChild(script);
+
+            }
+            else {
+                //zip_code is invalid.
+                clean_form_zip_code();
+                alert("Formato de CEP inválido.");
+            }
+        }
+        else {
+            //zip_code without, clean form.
+            clean_form_zip_code();
+        }
+    }
 
 function formate(mask, document){
   var i = document.value.length;
