@@ -7,6 +7,10 @@ body {
 background-color: #1dc8e2;
 padding-left: 10px
 
+.icon_oauth {
+    color: #FFFFFF;
+}
+
 }
 
 h11 {
@@ -106,8 +110,15 @@ background-color: rgba(0,0,0,0.5) !important;
 
 .social_icon span{
 font-size: 40px;
-margin-left: 10px;
 color: #1dc8e2;
+}
+
+.social_icon a{
+    color: #FFFFFF;
+}
+
+.social_icon a:hover{
+    color: #a9e5fd;
 }
 
 .social_icon span:hover{

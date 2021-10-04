@@ -73,7 +73,6 @@ def patients_list(request):
 
 @login_required
 def patient_create(request):
-    print(request.POST)
     if request.method == "POST":
         form = PatientForm(request.POST)
         if form.is_valid():
