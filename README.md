@@ -1,7 +1,7 @@
 # Projeto Desafio Django - Medical
 
 - Projeto Django simulando agendamento consulta de pacientes.
-- Autenticação pode ser feita usando rede social Facebook e Google.
+- Autenticação pode ser feita usando rede social Facebook(apenas com https) e Google.
 - Aplicação: *http://medical-desafio.herokuapp.com*
 - Login teste: 
   - Usuário: **usuario**
