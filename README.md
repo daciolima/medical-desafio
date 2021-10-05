@@ -3,12 +3,18 @@
 - Projeto Django simulando agendamento consulta de pacientes.
 - Autenticação pode ser feita usando rede social Facebook e Google.
 - Aplicação: *http://medical-desafio.herokuapp.com*
+- Login teste: 
+  - Usuário: **usuario**
+  - Password: **user1234**
 
 OBS: 
 - Foi realizado criação de um Custom Model afim de caso seja preciso adicionar ou alterar algum campo
 no user não tenhamos problemas para isso, coisa que acontece quando usa-se o model padrão de user do django.
+  Na ocasião foi adicionado os campos bio, created_at e update_at. 
 
-- 
+Code Model
+![plot](./core/static/img/usercustom.png)
+
 
 
 ### Libs Base
@@ -26,6 +32,14 @@ Disponibilizado também através da lib djoser os endpoints para autenticação 
 - django_extensions
 - drf_yasg = Documentação OpenAPI / Redoc
 ```
+Swagger
+![plot](./core/static/img/swagger.png)
+Redoc
+![plot](./core/static/img/redoc.png)
+
+DRF
+![plot](./core/static/img/drf.png)
+
 
 ### Libs auxiliares para código
 Como ferramentas no processo de code do projeto usei as libs abaixo para me auxiliar na arganização do código
@@ -39,6 +53,10 @@ dados sensíveis para o arquivos .env na raiz do projeto não commitado para o g
 - python-decouple
 ```
 
+
+Melhorando formatação do código com o pre-commit
+e flake8 quando realizado commit.
+![plot](./core/static/img/code.png)
 
 
 ### Database
@@ -79,6 +97,8 @@ Foi implementado as ferramentas de monitoramento Sentry e a Debug-Toolbar.
 
 Monitoramento de incidentes no Sentry
 ![plot](./core/static/img/sentry.png)
+
+![plot](./core/static/img/sentry2.png)
 
 Barra DebugToolbar de monitoramento em desenvolvimento
 ![plot](./core/static/img/debug_toolbar.png)
