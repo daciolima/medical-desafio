@@ -11,13 +11,13 @@ class DoctorUser(AbstractUser):
 class Patient(models.Model):
     name = models.CharField(max_length=50, null=False)
     address = models.CharField(max_length=80, null=False)
-    number = models.IntegerField()
+    number = models.CharField(max_length=15, null=False)
     complement = models.CharField(max_length=50, null=False, blank=True)
     neighborhood = models.CharField(
         max_length=50, null=False, blank=False, default="Faltando"
     )
     zip_code = models.IntegerField()
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=16, null=False, blank=True)
     city = models.CharField(max_length=50, null=False)
     state = models.CharField(max_length=50, null=False)
     country = models.CharField(max_length=50, null=False)

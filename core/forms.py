@@ -1,8 +1,5 @@
 from django.contrib.auth import forms
 from django import forms as form_login
-
-# from tempus_dominus.widgets import DatePicker, TimePicker, DateTimePicker
-
 from .models import DoctorUser, Patient, Appointment
 
 
@@ -35,24 +32,6 @@ class PatientForm(form_login.ModelForm):
         fields = "__all__"
 
 
-# STATUS = (
-#     ('', 'Selecione...'),
-#     ('not_confirme', 'A Confirmar'),
-#     ('confirmed', 'Confirmado'),
-#     ('done', 'Finalizando')
-# )
-
-
-# class AppointmentForm(form_login.Form):
-# title = form_login.CharField()
-# date = form_login.DateField()
-# time = form_login.CharField()
-# description = form_login.TimeField()
-# status = form_login.ChoiceField(choices=STATUS)
-# doctor = form_login.ModelChoiceField(queryset=DoctorUser.objects.all())
-# patient = form_login.ModelChoiceField(queryset=Patient.objects.all())
-
-
 class AppointmentForm(form_login.ModelForm):
     date = form_login.DateField(error_messages={"invalid": "Data inválida"})
     time = form_login.CharField(error_messages={"invalid": "Hora inválida"})
@@ -63,7 +42,14 @@ class AppointmentForm(form_login.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AppointmentForm, self).__init__(*args, **kwargs)
-        self.fields["title"].widget.attrs.update({"class": "form-control"})
+        self.fields["title"].widget.attrs.update(
+            {
+                "class": "form-control",
+                "minlength": "5",
+                "pattern": "[A-Za-z ]+",
+                "title": "Mínimo 5 caracteres e apenas letras",
+            }
+        )
         self.fields["date"].widget.attrs.update(
             {"class": "form-control", "id": "id_date", "value": "00/00/0000"}
         )
@@ -77,6 +63,8 @@ class AppointmentForm(form_login.ModelForm):
                 "data-autoclose": "true",
                 "data-placement": "right",
                 "value": "00:00",
+                "pattern": "[0-9:]+",
+                "title": "Use o Relógio para preencher o campo. Formato 00:00",
             }
         )
         self.fields["doctor"].widget.attrs.update(
