@@ -42,6 +42,7 @@ THIRD_PARTY_APPS = [
     "bootstrap4",
     "crispy_forms",
     "social_django",
+    "debug_toolbar",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Auth OAuth2
     "social_django.middleware.SocialAuthExceptionMiddleware",
+    # Debug Toolbar
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "admin.urls"
@@ -225,5 +228,6 @@ SOCIAL_AUTH_TWITTER_SECRET = ""
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

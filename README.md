@@ -7,7 +7,8 @@
 ### Libs Base
 Usei nesse projeto de desafio as tecnologias abaixo.
 Além do que foi pedido, criei também usando o DRF um endpoint : /api disponibilizando as consultas.
-Também implementei o swagger/OpenAPI para documentação dos endpoints disponíveis. /swagger
+Também implementei a lib drf_yasg para rodar o o swagger/OpenAPI e redoc para documentação dos endpoints 
+disponíveis. endepoints: /swagger e /redoc 
 Disponibilizado também através da lib djoser os endpoints para autenticação via jwt.
 ```shell 
 - python 3.9.7
