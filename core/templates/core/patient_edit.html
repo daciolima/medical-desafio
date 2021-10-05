@@ -14,7 +14,7 @@
 <div class="row">
   <label class="col-sm-1" for="name">Nome: <h11>*</h11></label>
   <div class="col-sm-6">
-  <input id="name" name="name" value="{{patient.name}}" placeholder="" class="form-control" required="" type="text" minlength="5" pattern="[A-Za-z ]+" title="Mínimo 5 caracteres e apenas letras">
+  <input id="name" name="name" value="{{patient.name}}" placeholder="" class="form-control" required="" type="text" minlength="5" pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" title="Mínimo 5 caracteres e apenas letras">
 
   </div>
 

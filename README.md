@@ -3,6 +3,7 @@
 - Projeto Django simulando abertura de agendamento consulta por um médico para um paciente.
 
 #### Configuração Base
+
 ```shell 
 - python 3.9.7
 - Django 3.2.4

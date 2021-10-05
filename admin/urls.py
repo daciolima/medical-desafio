@@ -3,11 +3,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from shared.conf_services import schema_view, trigger_error
+from rest_framework import routers
+from core.api.viewsets import AppointmentViewSet
+
+router = routers.DefaultRouter()
+
+router.register(r"appointment", AppointmentViewSet)
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
+    path("api/", include(router.urls)),
 ]
 
 # Uso de files statics quando aplicação estiver em modo DEBUG

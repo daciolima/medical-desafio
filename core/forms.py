@@ -46,16 +46,14 @@ class AppointmentForm(form_login.ModelForm):
             {
                 "class": "form-control",
                 "minlength": "5",
-                "pattern": "[A-Za-z ]+",
+                "pattern": "^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$",
                 "title": "Mínimo 5 caracteres e apenas letras",
             }
         )
         self.fields["date"].widget.attrs.update(
             {"class": "form-control", "id": "id_date", "value": "00/00/0000"}
         )
-        # "class": "form-control datetimepicker-input",
-        # "id": "datetimepicker1",
-        # "data - target": "#datetimepicker1",
+
         self.fields["time"].widget.attrs.update(
             {
                 "class": "form-control col-sm-4",
