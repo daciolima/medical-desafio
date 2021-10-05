@@ -49,20 +49,13 @@
 
 
         <ul class="navbar-nav ml-auto ">
-            <li class="nav-item">
-                <a class="btn btn-secondary" data-toggle="modal" data-target=".resumo-modal-xl">SOBRE O PROJETO</a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto ">
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Usuário: {{ user.username }}
+                    Olá, {{ user.username|title }}
                     <img src="{% static 'img/avatar.png' %}" width="40" height="40" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Perfil</a>
                     <a class="dropdown-item" target="#logoutModal" href="{% url 'core:logout' %}">Sair</a>
                 </div>
             </li>

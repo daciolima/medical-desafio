@@ -13,6 +13,7 @@ no user não tenhamos problemas para isso, coisa que acontece quando usa-se o mo
   Na ocasião foi adicionado os campos bio, created_at e update_at. 
 
 Code Model
+
 ![plot](./core/static/img/usercustom.png)
 
 

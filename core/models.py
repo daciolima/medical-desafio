@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from .manager import AppointmentTodayManager
 
 
 class DoctorUser(AbstractUser):
@@ -48,6 +49,10 @@ class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="app")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    # Managers
+    objects = models.Manager()
+    appointment_today = AppointmentTodayManager()
 
     class Meta:
         verbose_name = "appointment"

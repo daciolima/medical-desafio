@@ -1,0 +1,8 @@
+<div class="col-md-4">
+                <h2>Consultas para Hoje</h2>
+                    {% for app in appointments  %}
+                         <p>{{ app }}</p>
+                    {% endfor %}
+
+                <p><a class="btn btn-secondary" href="{% url 'core:appointments' %}" role="button">Ver detalhes &raquo;</a></p>
+</div>

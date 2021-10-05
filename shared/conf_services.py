@@ -19,4 +19,4 @@ schema_view = get_schema_view(
 
 # Return falha no sentry
 # def trigger_error(request):
-#     division_by_zero = 1 / 0
+#    division_by_zero = 1 / 0
