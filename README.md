@@ -4,11 +4,18 @@
 - Autenticação pode ser feita usando rede social Facebook e Google.
 - Aplicação: *http://medical-desafio.herokuapp.com*
 
+OBS: 
+- Foi realizado criação de um Custom Model afim de caso seja preciso adicionar ou alterar algum campo
+no user não tenhamos problemas para isso, coisa que acontece quando usa-se o model padrão de user do django.
+
+- 
+
+
 ### Libs Base
 Usei nesse projeto de desafio as tecnologias abaixo.
 Além do que foi pedido, criei também usando o DRF um endpoint : /api disponibilizando as consultas.
 Também implementei a lib drf_yasg para rodar o o swagger/OpenAPI e redoc para documentação dos endpoints 
-disponíveis. endepoints: /swagger e /redoc 
+disponíveis. endepoints: /swagger e /redoc`**~~~~**` 
 Disponibilizado também através da lib djoser os endpoints para autenticação via jwt.
 ```shell 
 - python 3.9.7
@@ -32,6 +39,8 @@ dados sensíveis para o arquivos .env na raiz do projeto não commitado para o g
 - python-decouple
 ```
 
+
+
 ### Database
 Para auxiliar no database usei a lib dj-database-url que gerencia a rota do banco local e produção
 evitando ficar alterando senha do banco nos testes. Database em produção está o PostgreSQL
@@ -50,6 +59,8 @@ Ex: Template core/appointments_list.html
 - font awesomeV5.9
 - Templates Tags Django 
 ```
+Aplicação de tags com condicionais 
+![plot](./core/static/img/tag.png)
 
 ### Deploy
 Foi realizada o deploy da aplicação usando o serviço PaaS Heroku. http://medical-desafio.herokuapp.com
@@ -66,4 +77,9 @@ Foi implementado as ferramentas de monitoramento Sentry e a Debug-Toolbar.
 - django-debug-toolbar
 ```
 
+Monitoramento de incidentes no Sentry
+![plot](./core/static/img/sentry.png)
+
+Barra DebugToolbar de monitoramento em desenvolvimento
+![plot](./core/static/img/debug_toolbar.png)
 
