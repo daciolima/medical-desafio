@@ -22,7 +22,7 @@ Code Model
 Usei nesse projeto de desafio as tecnologias abaixo.
 Além do que foi pedido, criei também usando o DRF um endpoint : /api disponibilizando as consultas.
 Também implementei a lib drf_yasg para rodar o o swagger/OpenAPI e redoc para documentação dos endpoints 
-disponíveis. endepoints: /swagger e /redoc`**~~~~**` 
+disponíveis. Endpoints: /swagger e /redoc
 Disponibilizado também através da lib djoser os endpoints para autenticação via jwt.
 ```shell 
 - python 3.9.7
@@ -43,9 +43,9 @@ DRF
 
 
 ### Libs auxiliares para código
-Como ferramentas no processo de code do projeto usei as libs abaixo para me auxiliar na arganização do código
-no que diz respeito a regras por exemplo: PEP8 do python. Usado também a lib python-decouple para jogar 
-dados sensíveis para o arquivos .env na raiz do projeto não commitado para o github.
+Como ferramentas no processo de code do projeto usei as libs abaixo para me auxiliar na organização do código
+no que diz respeito a regras por exemplo: PEP8 do python. Usado também a lib python-decouple mapeando
+dados sensíveis para o arquivo .env na raiz do projeto. Arquivo não commitado para o github.
 ```shell 
 - pylint
 - pre-commit
@@ -101,6 +101,5 @@ Monitoramento de incidentes no Sentry
 
 ![plot](./core/static/img/sentry2.png)
 
-Barra DebugToolbar de monitoramento em desenvolvimento
+Barra DebugToolbar de monitoramento em modo de desenvolvimento. DEBUG=True
 ![plot](./core/static/img/debug_toolbar.png)
-

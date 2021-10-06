@@ -23,7 +23,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fas fa-phone-volume fa-1x"></i></div>
         </div>
-          <input id="id_phone" name="phone" value="{{patient.phone}}" class="form-control" placeholder="DDD + Telefone" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" title="Somente números"
+          <input id="id_phone" name="phone" value="{{patient.phone}}" class="form-control" placeholder="DDD + Telefone" required="" type="text" maxlength="13" pattern="[0-9 ()-]+"  title="Somente números"
       OnKeyPress="formate('## # ########', this)">
       </div>
     </div>
@@ -55,7 +55,8 @@
 <div class="row">
   <label class="col-sm-1 control-label" for="Address">Rua: </label>
       <div class="col-sm-6">
-       <input id="address" name="address" value="{{patient.address}}"  class="form-control" placeholder="" required="" readonly="readonly" type="text">
+       <input id="address" name="address" value="{{patient.address}}"  class="form-control" placeholder="" required=""
+              pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" title="Campo em Branco. Favor preencher." type="text">
       </div>
 </div>
 </div>
@@ -80,12 +81,12 @@
 
       <label class="col-sm-1 control-label" for="Neighborhood">Bairro:</label>
       <div class="col-sm-3">
-      <input id="neighborhood" name="neighborhood" value="{{patient.neighborhood}}"  class="form-control" placeholder="" required="" readonly="readonly" type="text">
+      <input id="neighborhood" name="neighborhood" value="{{patient.neighborhood}}"  class="form-control" placeholder="" required=""  type="text">
 
 </div>
 <label class="col-sm-1 control-label" for="City">Cidade:</label>
       <div class="col-sm-5">
-        <input id="city" name="city" value="{{patient.city}}" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+        <input id="city" name="city" value="{{patient.city}}" class="form-control" placeholder="" required=""  type="text">
     </div>
 
 
@@ -97,8 +98,9 @@
   <div class="row">
 
       <label class="col-sm-1 control-label" for="State">Estado:</label>
-      <div class="col-sm-5">
-      <input id="state" name="state" value="{{patient.state}}" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+      <div class="col-sm-1">
+      <input id="state" name="state" value="{{patient.state}}" class="form-control" placeholder="" required=""
+             type="text" pattern="^[A-Z]+$" title="Digite a UF do Estado. Ex: PB"  >
     </div>
 <label class="col-sm-1 control-label" for="Country">País:</label>
       <div class="col-sm-3">

@@ -11,7 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap-clockpicker.min.css' %}" rel="stylesheet">
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
 
@@ -36,16 +36,17 @@
     >
         <span class="navbar-toggler-icon"></span>
     </button>
-    <ul class="navbar-nav   mr-auto">
-
-        <li class="nav-item active">
-            <a class="nav-link" href="{% url 'core:patients' %}">Pacientes <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{% url 'core:appointments' %}">Agendar Consulta <span class="sr-only">(current)</span></a>
-        </li>
-    </ul>
     <div class="collapse navbar-collapse " id="navbarNavDropdown">
+        <ul class="navbar-nav   mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'core:patients' %}">Pacientes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'core:appointments' %}">Agendar Consulta <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
 
 
         <ul class="navbar-nav ml-auto ">
@@ -147,7 +148,7 @@ autoclose: true,
 </script>
 
 
- <script>
+<script>
   $( function() {
     $( "#id_date" ).datepicker(
     {

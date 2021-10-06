@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from .manager import AppointmentTodayManager
+from core.managers import AppointmentTodayManager
 
 
 class DoctorUser(AbstractUser):
@@ -52,7 +52,7 @@ class Appointment(models.Model):
 
     # Managers
     objects = models.Manager()
-    appointment_today = AppointmentTodayManager()
+    appointments_today = AppointmentTodayManager()
 
     class Meta:
         verbose_name = "appointment"
@@ -60,7 +60,7 @@ class Appointment(models.Model):
         ordering = ["-id"]
 
     def __str__(self):
-        return f"{self.title} {self.status_display()}"
+        return f"{self.title}"  # {self.status_display()}
 
     def status_verbose(self):
         return dict(Appointment.STATUS_CHOICE)[self.status]

@@ -16,11 +16,6 @@ class IndexView(LoginRequiredMixin, View):
         return render(request, "core/index.html")
 
 
-class UmlView(LoginRequiredMixin, View):
-    def get(self, request):
-        return render(request, "core/uml.html")
-
-
 # ############# View Login/Logout ###############
 class LoginView(View):
     def get(self, request):
